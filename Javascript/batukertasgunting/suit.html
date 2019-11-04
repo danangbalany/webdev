@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Batu Kertas Gunting</title>
+    </head>
+    <body>
+        <script>
+            let compPilih = '';
+            let playerPilih = '';
+            let hasil = '';
+            let playerScore = 0;
+            let computerScore = 0;
+            function computerPlay() {
+                let compRand = Math.floor(Math.random(1) * 3);
+                let compHasil = (compRand === 0) ? 'Batu' :
+                                (compRand === 1) ? 'Kertas' :
+                                'Gunting';
+                return compHasil;
+            }
+            function playRound(playerPilih, compPilih) {
+                playerPilih = playerPilih.charAt(0).toUpperCase() + playerPilih.slice(1).toLowerCase();
+
+                if (playerPilih == compPilih) {
+                    hasilRound = "Seri!"
+                } else if ((playerPilih == 'Batu' & compPilih == 'Kertas')
+                        || (playerPilih == 'Kertas' & compPilih == 'Gunting')
+                        || (playerPilih == 'Gunting' && compPilih == 'Batu')){
+                    hasilRound = 'Kalah! ' + compPilih + ' Vs ' + playerPilih;
+                } else {
+                    hasilRound = "Menang! " + playerPilih + ' Vs ' + compPilih;
+                }
+                return hasilRound;
+            }
+            function game(){
+                for (var i =0; i < 5; i++) {
+                    let userInput = prompt('Batu, Kertas, or Gunting?')
+                    let computerChoice = computerPlay();
+                    playRound(userInput, computerChoice);
+                    if (hasilRound.includes('Menang')){
+                        playerScore++;
+                    } else if (hasilRound.includes('Kalah')) {
+                        computerScore++;
+                    }
+                    console.log(hasilRound);
+                }
+                if (playerScore > computerScore) {
+                    hasil = 'Player Menang';
+                } else if (computerScore > playerScore) {
+                    hasil = 'Computer Menang';
+                } else {
+                    hasil = 'Permainan Seri!';
+                }
+                console.log(hasil);
+            }
+            game();
+        </script>
+    </body>
+</html>
