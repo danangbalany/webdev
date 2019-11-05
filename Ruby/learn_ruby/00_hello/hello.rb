@@ -3,6 +3,6 @@ def hello
   p "Hello!"
 end
 
-def greet name
-  p "Hello, #{name}!"
+def greet dan
+  p "Hello, #{dan}!"
 end

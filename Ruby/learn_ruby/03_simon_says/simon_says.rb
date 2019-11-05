@@ -18,9 +18,9 @@ def repeat(string, times = 2)
     final_string
 end
 
-def  start_of_word string, idx
+def  start_of_word string, ind
     result = ''
-    idx.times do |i|
+    ind.times do |i|
         result += string[i]
     end
     result

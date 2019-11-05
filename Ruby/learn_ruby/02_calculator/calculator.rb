@@ -20,7 +20,6 @@ end
 def multiply(*args)
   args.reduce(:*)
 end
-
 def power(a,b)
   a ** b
 end
